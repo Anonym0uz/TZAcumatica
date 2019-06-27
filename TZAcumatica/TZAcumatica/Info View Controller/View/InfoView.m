@@ -1,15 +1,14 @@
 //
-//  InitialView.m
+//  InfoView.m
 //  TZAcumatica
 //
-//  Created by Alexander Orlov on 25/06/2019.
+//  Created by Alexander Orlov on 26/06/2019.
 //  Copyright © 2019 Alexander Orlov. All rights reserved.
 //
 
-#import "InitialView.h"
-#import "InitialViewController.h"
+#import "InfoView.h"
 
-@implementation InitialView
+@implementation InfoView
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -22,17 +21,17 @@
     self.tableView = [[UITableView alloc] initWithFrame:self.frame style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView registerClass:[InitialTBCell class] forCellReuseIdentifier:@"TBCell"];
+    [self.tableView registerClass:[InfoTBCell class] forCellReuseIdentifier:@"TBCell"];
     [self addSubview:self.tableView];
 }
 
 - (void)updateData:(NSArray *)arr {
-    self.datas = [NSMutableArray arrayWithArray:arr];
+    self.datas = [NSArray arrayWithArray:arr];
     [self.tableView reloadData];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    InitialTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TBCell" forIndexPath:indexPath];
+    InfoTBCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TBCell" forIndexPath:indexPath];
     NSDictionary *dict = self.datas[indexPath.row];
     if ([[dict objectForKey:@"name"]  isEqual: @""]) { cell.nameField.text = @"-"; }
     else { cell.nameField.text = [dict objectForKey:@"name"]; }
@@ -42,33 +41,25 @@
     else { cell.birthdayField.text = [dict objectForKey:@"birthdate"]; }
     if ([[dict objectForKey:@"childrenCount"]  isEqual: @""]) { cell.childrenField.text = @"-"; }
     else { cell.childrenField.text = [dict objectForKey:@"childrenCount"]; }
-    cell.removeButton.tag = indexPath.row;
-    [cell.removeButton addTarget:self action:@selector(removeClicked:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 160;
+    return 140;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    [self.delegate cellDidSelect:indexPath.row];
+    [self.delegate cellDidSelect];
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.datas count];
 }
 
-- (void)removeClicked:(UIButton *)button {
-    [self.datas removeObjectAtIndex:button.tag];
-    [self.delegate cellRemoveByIndex:button.tag];
-    [self.tableView reloadData];
-}
-
 @end
 
-@implementation InitialTBCell
+@implementation InfoTBCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -102,12 +93,6 @@
     self.childrenField = [[UILabel alloc] initWithFrame:CGRectZero];
     self.childrenField.translatesAutoresizingMaskIntoConstraints = false;
     
-    self.removeButton = [[UIButton alloc] init];
-    self.removeButton.translatesAutoresizingMaskIntoConstraints = false;
-    [self.removeButton setFont:[UIFont systemFontOfSize:14]];
-    [self.removeButton setTitleColor:UIColor.redColor forState:UIControlStateNormal];
-    [self.removeButton setTitle:@"Remove" forState:UIControlStateNormal];
-    
     [self.contentView addSubview:self.nameModelField];
     [self.contentView addSubview:self.lastNameModelField];
     [self.contentView addSubview:self.birthdayModelField];
@@ -117,8 +102,6 @@
     [self.contentView addSubview:self.lastNameField];
     [self.contentView addSubview:self.birthdayField];
     [self.contentView addSubview:self.childrenField];
-    
-    [self.contentView addSubview:self.removeButton];
     
     [self.nameModelField.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:10].active = true;
     [self.nameModelField.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:10].active = true;
@@ -143,11 +126,5 @@
     
     [self.childrenField.centerYAnchor constraintEqualToAnchor:self.childrenModelField.centerYAnchor].active = true;
     [self.childrenField.leadingAnchor constraintEqualToAnchor:self.childrenModelField.trailingAnchor constant:10].active = true;
-    
-    [self.removeButton.topAnchor constraintEqualToAnchor:self.childrenField.bottomAnchor constant:5].active = true;
-    [self.removeButton.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor].active = true;
-    [self.removeButton.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor].active = true;
-    [self.removeButton.heightAnchor constraintEqualToConstant:30].active = true;
 }
-
 @end

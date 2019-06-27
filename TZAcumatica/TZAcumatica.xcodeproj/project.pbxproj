@@ -16,6 +16,9 @@
 		B95B023722C2829C005D7BC7 /* input.plist in Resources */ = {isa = PBXBuildFile; fileRef = B95B023622C2829C005D7BC7 /* input.plist */; };
 		B95B023E22C2857A005D7BC7 /* InitialView.m in Sources */ = {isa = PBXBuildFile; fileRef = B95B023D22C2857A005D7BC7 /* InitialView.m */; };
 		B95B024122C28586005D7BC7 /* InitialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B95B024022C28586005D7BC7 /* InitialModel.m */; };
+		B95B024822C37D59005D7BC7 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B95B024722C37D59005D7BC7 /* InfoViewController.m */; };
+		B95B024B22C37D85005D7BC7 /* InfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B95B024A22C37D85005D7BC7 /* InfoView.m */; };
+		B95B024E22C37D95005D7BC7 /* InfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B95B024D22C37D95005D7BC7 /* InfoModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,12 @@
 		B95B023D22C2857A005D7BC7 /* InitialView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitialView.m; sourceTree = "<group>"; };
 		B95B023F22C28586005D7BC7 /* InitialModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitialModel.h; sourceTree = "<group>"; };
 		B95B024022C28586005D7BC7 /* InitialModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitialModel.m; sourceTree = "<group>"; };
+		B95B024622C37D59005D7BC7 /* InfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		B95B024722C37D59005D7BC7 /* InfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		B95B024922C37D85005D7BC7 /* InfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoView.h; sourceTree = "<group>"; };
+		B95B024A22C37D85005D7BC7 /* InfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoView.m; sourceTree = "<group>"; };
+		B95B024C22C37D95005D7BC7 /* InfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoModel.h; sourceTree = "<group>"; };
+		B95B024D22C37D95005D7BC7 /* InfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +78,7 @@
 				B95B023622C2829C005D7BC7 /* input.plist */,
 				B95B022022C28284005D7BC7 /* AppDelegate.h */,
 				B95B022122C28284005D7BC7 /* AppDelegate.m */,
+				B95B024222C37B56005D7BC7 /* Info View Controller */,
 				B95B023822C282AA005D7BC7 /* First View Controller */,
 				B95B022622C28284005D7BC7 /* Main.storyboard */,
 				B95B022922C28285005D7BC7 /* Assets.xcassets */,
@@ -112,6 +122,43 @@
 			children = (
 				B95B022322C28284005D7BC7 /* InitialViewController.h */,
 				B95B022422C28284005D7BC7 /* InitialViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B95B024222C37B56005D7BC7 /* Info View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B95B024522C37B75005D7BC7 /* Controller */,
+				B95B024422C37B71005D7BC7 /* View */,
+				B95B024322C37B6B005D7BC7 /* Model */,
+			);
+			path = "Info View Controller";
+			sourceTree = "<group>";
+		};
+		B95B024322C37B6B005D7BC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B95B024C22C37D95005D7BC7 /* InfoModel.h */,
+				B95B024D22C37D95005D7BC7 /* InfoModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B95B024422C37B71005D7BC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B95B024922C37D85005D7BC7 /* InfoView.h */,
+				B95B024A22C37D85005D7BC7 /* InfoView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B95B024522C37B75005D7BC7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B95B024622C37D59005D7BC7 /* InfoViewController.h */,
+				B95B024722C37D59005D7BC7 /* InfoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,6 +236,9 @@
 			files = (
 				B95B022522C28284005D7BC7 /* InitialViewController.m in Sources */,
 				B95B023E22C2857A005D7BC7 /* InitialView.m in Sources */,
+				B95B024822C37D59005D7BC7 /* InfoViewController.m in Sources */,
+				B95B024E22C37D95005D7BC7 /* InfoModel.m in Sources */,
+				B95B024B22C37D85005D7BC7 /* InfoView.m in Sources */,
 				B95B023022C28285005D7BC7 /* main.m in Sources */,
 				B95B022222C28284005D7BC7 /* AppDelegate.m in Sources */,
 				B95B024122C28586005D7BC7 /* InitialModel.m in Sources */,
